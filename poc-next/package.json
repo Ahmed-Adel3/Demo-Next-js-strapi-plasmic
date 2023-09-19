@@ -14,7 +14,7 @@
     "@apollo/client": "^3.8.0-alpha.15",
     "@apollo/experimental-nextjs-app-support": "^0.4.2",
     "@plasmicapp/cli": "^0.1.309",
-    "@plasmicapp/loader-nextjs": "^1.0.310",
+    "@plasmicapp/loader-nextjs": "^1.0.311",
     "@plasmicapp/react-web": "^0.2.253",
     "@plasmicpkgs/antd5": "^0.0.122",
     "@plasmicpkgs/plasmic-basic-components": "^0.0.177",
@@ -25,6 +25,7 @@
     "@types/react-dom": "18.2.7",
     "graphql": "^16.8.0",
     "next": "13.4.19",
+    "qs": "^6.11.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.2.2"
