@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "my-strapi-app" > /etc/hostname
+echo "strapi" > /etc/hostname
