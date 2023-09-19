@@ -7,11 +7,9 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi",
-    "set-hostname": "bash set-hostname.sh"
+    "strapi": "strapi"
   },
   "devDependencies": {
-    "nextjs": "^0.0.3"
   },
   "dependencies": {
     "@strapi/plugin-graphql": "^4.14.0-alpha.0",
