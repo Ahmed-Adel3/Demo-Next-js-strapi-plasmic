@@ -14,6 +14,7 @@ export interface GlobalContextsProviderProps {
   antdConfigProviderProps?: Partial<
     Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
   >;
+
   strapiCredentialsProviderProps?: Partial<
     Omit<React.ComponentProps<typeof StrapiCredentialsProvider>, "children">
   >;
