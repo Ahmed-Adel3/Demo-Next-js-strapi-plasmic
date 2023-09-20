@@ -484,6 +484,20 @@
           "cssFilePath": "plasmic/poc_project/PlasmicPageLayout.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "gwli7mWhiOr5",
+          "name": "Articles",
+          "type": "managed",
+          "projectId": "nCYdrPreWy1Y9vibrND8zs",
+          "renderModuleFilePath": "plasmic/poc_project/PlasmicArticles.tsx",
+          "importSpec": {
+            "modulePath": "../pages/articles/[slug].tsx"
+          },
+          "cssFilePath": "plasmic/poc_project/PlasmicArticles.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/articles/[slug]"
         }
       ],
       "icons": [

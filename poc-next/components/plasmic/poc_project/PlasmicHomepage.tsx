@@ -44,6 +44,7 @@ import {
 } from "@plasmicapp/react-web";
 import PageLayout from "../../PageLayout"; // plasmic-import: oBF7spngyz80/component
 import { StrapiCollection } from "@plasmicpkgs/plasmic-strapi"; // plasmic-import: 3PiAu_DqaPA/codeComponent
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton"; // plasmic-import: bx9Xzvf5_eu/codeComponent
 import { StrapiField } from "@plasmicpkgs/plasmic-strapi"; // plasmic-import: Yal_C-reFIU/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: s_X35kxNyfle/codeComponent
 
@@ -67,8 +68,8 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
   pageLayout?: p.Flex<typeof PageLayout>;
-  strapiCollection?: p.Flex<typeof StrapiCollection>;
-  freeBox?: p.Flex<"div">;
+  button?: p.Flex<typeof AntdButton>;
+  link?: p.Flex<"a"> & Partial<LinkProps>;
   strapiField?: p.Flex<typeof StrapiField>;
 };
 
@@ -108,14 +109,14 @@ function PlasmicHomepage__RenderFunc(props: {
   >({});
 
   const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
-    customers: usePlasmicDataOp(
+    articles: usePlasmicDataOp(
       (() => {
         try {
           return {
             sourceId: "9HWgw8nABkTH85QqLgP6qW",
-            opId: "ac35e4d6-1adf-47e3-92c1-38e2b87c2e38",
+            opId: "1487f252-ac22-4fb6-9273-1ac2f62d612a",
             userArgs: {},
-            cacheKey: "plasmic.$..$..$.ac35e4d6-1adf-47e3-92c1-38e2b87c2e38.$.",
+            cacheKey: "plasmic.$..$..$.1487f252-ac22-4fb6-9273-1ac2f62d612a.$.",
             invalidatedKeys: null,
             roleId: null
           };
@@ -170,12 +171,10 @@ function PlasmicHomepage__RenderFunc(props: {
             <ph.DataCtxReader>
               {$ctx => (
                 <StrapiCollection
-                  data-plasmic-name={"strapiCollection"}
-                  data-plasmic-override={overrides.strapiCollection}
-                  className={classNames("__wab_instance", sty.strapiCollection)}
-                  filterField={"Title"}
-                  filterParameter={"$ne"}
-                  filterValue={"1"}
+                  className={classNames(
+                    "__wab_instance",
+                    sty.strapiCollection___690Ik
+                  )}
                   name={"Articles"}
                   noAutoRepeat={false}
                   noLayout={false}
@@ -183,19 +182,124 @@ function PlasmicHomepage__RenderFunc(props: {
                   <ph.DataCtxReader>
                     {$ctx => (
                       <div
-                        data-plasmic-name={"freeBox"}
-                        data-plasmic-override={overrides.freeBox}
-                        className={classNames(projectcss.all, sty.freeBox)}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__wlGv7
+                        )}
                       >
-                        <StrapiField
-                          data-plasmic-name={"strapiField"}
-                          data-plasmic-override={overrides.strapiField}
+                        <AntdButton
+                          data-plasmic-name={"button"}
+                          data-plasmic-override={overrides.button}
+                          className={classNames("__wab_instance", sty.button)}
+                          disabled={false}
+                          href={(() => {
+                            try {
+                              return (
+                                "/articles/" + $ctx.currentStrapiArticlesItem.id
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return `/articles/${""}`;
+                              }
+                              throw e;
+                            }
+                          })()}
+                          onClick={async () => {
+                            const $steps = {};
+                            $steps["updateStateVariable"] = true
+                              ? (() => {
+                                  const actionArgs = {};
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+                                    undefined;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              typeof $steps["updateStateVariable"] ===
+                                "object" &&
+                              typeof $steps["updateStateVariable"].then ===
+                                "function"
+                            ) {
+                              $steps["updateStateVariable"] = await $steps[
+                                "updateStateVariable"
+                              ];
+                            }
+                          }}
+                          shape={"round"}
+                          size={"small"}
+                          target={true}
+                          type={"primary"}
+                        >
+                          <p.PlasmicLink
+                            data-plasmic-name={"link"}
+                            data-plasmic-override={overrides.link}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.a,
+                              projectcss.__wab_text,
+                              sty.link
+                            )}
+                            component={Link}
+                            platform={"nextjs"}
+                          >
+                            {"Read more ..."}
+                          </p.PlasmicLink>
+                        </AntdButton>
+                        <StrapiCollection
                           className={classNames(
                             "__wab_instance",
-                            sty.strapiField
+                            sty.strapiCollection__olTbc
                           )}
-                          path={"Title"}
-                        />
+                          name={"Articles"}
+                          noAutoRepeat={false}
+                          noLayout={false}
+                        >
+                          <ph.DataCtxReader>
+                            {$ctx => (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox___9Is0H
+                                )}
+                              >
+                                <StrapiField
+                                  data-plasmic-name={"strapiField"}
+                                  data-plasmic-override={overrides.strapiField}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.strapiField
+                                  )}
+                                  path={(() => {
+                                    try {
+                                      return undefined;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                />
+                              </div>
+                            )}
+                          </ph.DataCtxReader>
+                        </StrapiCollection>
                       </div>
                     )}
                   </ph.DataCtxReader>
@@ -210,10 +314,10 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "pageLayout", "strapiCollection", "freeBox", "strapiField"],
-  pageLayout: ["pageLayout", "strapiCollection", "freeBox", "strapiField"],
-  strapiCollection: ["strapiCollection", "freeBox", "strapiField"],
-  freeBox: ["freeBox", "strapiField"],
+  root: ["root", "pageLayout", "button", "link", "strapiField"],
+  pageLayout: ["pageLayout", "button", "link", "strapiField"],
+  button: ["button", "link"],
+  link: ["link"],
   strapiField: ["strapiField"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -222,8 +326,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   pageLayout: typeof PageLayout;
-  strapiCollection: typeof StrapiCollection;
-  freeBox: "div";
+  button: typeof AntdButton;
+  link: "a";
   strapiField: typeof StrapiField;
 };
 
@@ -288,8 +392,8 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     pageLayout: makeNodeComponent("pageLayout"),
-    strapiCollection: makeNodeComponent("strapiCollection"),
-    freeBox: makeNodeComponent("freeBox"),
+    button: makeNodeComponent("button"),
+    link: makeNodeComponent("link"),
     strapiField: makeNodeComponent("strapiField"),
 
     // Metadata about props expected for PlasmicHomepage
