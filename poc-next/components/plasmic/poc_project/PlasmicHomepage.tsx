@@ -70,10 +70,7 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
   pageLayout?: p.Flex<typeof PageLayout>;
-  strapiCollection?: p.Flex<typeof StrapiCollection>;
-  freeBox?: p.Flex<"div">;
-  button?: p.Flex<typeof AntdButton>;
-  link?: p.Flex<"a"> & Partial<LinkProps>;
+  readMore?: p.Flex<"div">;
 };
 
 export interface DefaultHomepageProps {}
@@ -177,115 +174,225 @@ function PlasmicHomepage__RenderFunc(props: {
           >
             <ph.DataCtxReader>
               {$ctx => (
-                <StrapiCollection
-                  data-plasmic-name={"strapiCollection"}
-                  data-plasmic-override={overrides.strapiCollection}
-                  className={classNames("__wab_instance", sty.strapiCollection)}
-                  filterField={"slug"}
-                  filterParameter={"$ne"}
-                  filterValue={" "}
-                  name={"Articles"}
-                  noAutoRepeat={false}
-                  noLayout={false}
-                >
-                  <ph.DataCtxReader>
-                    {$ctx => (
-                      <div
-                        data-plasmic-name={"freeBox"}
-                        data-plasmic-override={overrides.freeBox}
-                        className={classNames(projectcss.all, sty.freeBox)}
-                      >
-                        <StrapiField
+                <React.Fragment>
+                  <StrapiCollection
+                    className={classNames(
+                      "__wab_instance",
+                      sty.strapiCollection__hw7Dp
+                    )}
+                    filterField={"Featured"}
+                    filterParameter={"$eq"}
+                    filterValue={"1"}
+                    limit={1}
+                    name={"Articles"}
+                    noAutoRepeat={false}
+                    noLayout={false}
+                  >
+                    <ph.DataCtxReader>
+                      {$ctx => (
+                        <div
                           className={classNames(
-                            "__wab_instance",
-                            sty.strapiField__wr6T
+                            projectcss.all,
+                            sty.freeBox__zVgfg
                           )}
-                          path={"Title"}
-                        />
-
-                        <StrapiField
-                          className={classNames(
-                            "__wab_instance",
-                            sty.strapiField___4Qitj
-                          )}
-                          path={"Cover"}
-                        />
-
-                        <AntdButton
-                          data-plasmic-name={"button"}
-                          data-plasmic-override={overrides.button}
-                          className={classNames("__wab_instance", sty.button)}
-                          disabled={false}
-                          href={(() => {
-                            try {
-                              return (
-                                "/articles/" +
-                                $ctx.currentStrapiArticlesItem.attributes.slug
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return `/articles/${""}`;
-                              }
-                              throw e;
-                            }
-                          })()}
-                          onClick={async () => {
-                            const $steps = {};
-                            $steps["updateStateVariable"] = true
-                              ? (() => {
-                                  const actionArgs = {};
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-                                    undefined;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              typeof $steps["updateStateVariable"] ===
-                                "object" &&
-                              typeof $steps["updateStateVariable"].then ===
-                                "function"
-                            ) {
-                              $steps["updateStateVariable"] = await $steps[
-                                "updateStateVariable"
-                              ];
-                            }
-                          }}
-                          shape={"round"}
-                          size={"small"}
-                          target={true}
-                          type={"primary"}
                         >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__eRzuz
+                            )}
+                          >
+                            <StrapiField
+                              className={classNames(
+                                "__wab_instance",
+                                sty.strapiField__nd7IP
+                              )}
+                              path={"Title"}
+                            />
+
+                            <AntdButton
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button__gkSqz
+                              )}
+                              href={(() => {
+                                try {
+                                  return (
+                                    "/articles/" +
+                                    $ctx.currentStrapiArticlesItem.attributes
+                                      .slug
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              size={"medium"}
+                              type={"primary"}
+                            >
+                              <div
+                                data-plasmic-name={"readMore"}
+                                data-plasmic-override={overrides.readMore}
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.readMore
+                                )}
+                              >
+                                {"READ MORE ..."}
+                              </div>
+                            </AntdButton>
+                          </div>
+                          <StrapiField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.strapiField__gApJd
+                            )}
+                            path={"Cover"}
+                          />
+                        </div>
+                      )}
+                    </ph.DataCtxReader>
+                  </StrapiCollection>
+                  <StrapiCollection
+                    className={classNames(
+                      "__wab_instance",
+                      sty.strapiCollection___690Ik
+                    )}
+                    filterField={"Featured"}
+                    filterParameter={"$eq"}
+                    filterValue={"0"}
+                    name={"Articles"}
+                    noAutoRepeat={false}
+                    noLayout={false}
+                  >
+                    <ph.DataCtxReader>
+                      {$ctx => (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__wlGv7
+                          )}
+                        >
+                          <StrapiField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.strapiField__wr6T
+                            )}
+                            path={"Title"}
+                          />
+
+                          <StrapiField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.strapiField___4Qitj
+                            )}
+                            path={"Cover"}
+                          />
+
                           <p.PlasmicLink
-                            data-plasmic-name={"link"}
-                            data-plasmic-override={overrides.link}
                             className={classNames(
                               projectcss.all,
                               projectcss.a,
-                              projectcss.__wab_text,
-                              sty.link
+                              sty.link__yBjTd
                             )}
                             component={Link}
                             platform={"nextjs"}
                           >
-                            {"Read more ..."}
+                            <AntdButton
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button__aepQv
+                              )}
+                              disabled={false}
+                              href={(() => {
+                                try {
+                                  return (
+                                    "/articles/" +
+                                    $ctx.currentStrapiArticlesItem.attributes
+                                      .slug
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return `/articles/${""}`;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              onClick={async () => {
+                                const $steps = {};
+                                $steps["updateStateVariable"] = true
+                                  ? (() => {
+                                      const actionArgs = {};
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+                                        undefined;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  typeof $steps["updateStateVariable"] ===
+                                    "object" &&
+                                  typeof $steps["updateStateVariable"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateStateVariable"] = await $steps[
+                                    "updateStateVariable"
+                                  ];
+                                }
+                              }}
+                              shape={"default"}
+                              size={"medium"}
+                              target={true}
+                              type={"primary"}
+                            >
+                              <p.PlasmicLink
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.a,
+                                  projectcss.__wab_text,
+                                  sty.link__nawyR
+                                )}
+                                component={Link}
+                                platform={"nextjs"}
+                              >
+                                <React.Fragment>
+                                  <span
+                                    className={
+                                      "plasmic_default__all plasmic_default__span"
+                                    }
+                                    style={{ color: "#FFFFFF" }}
+                                  >
+                                    {"Read more ..."}
+                                  </span>
+                                </React.Fragment>
+                              </p.PlasmicLink>
+                            </AntdButton>
                           </p.PlasmicLink>
-                        </AntdButton>
-                      </div>
-                    )}
-                  </ph.DataCtxReader>
-                </StrapiCollection>
+                        </div>
+                      )}
+                    </ph.DataCtxReader>
+                  </StrapiCollection>
+                </React.Fragment>
               )}
             </ph.DataCtxReader>
           </PageLayout>
@@ -296,12 +403,9 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "pageLayout", "strapiCollection", "freeBox", "button", "link"],
-  pageLayout: ["pageLayout", "strapiCollection", "freeBox", "button", "link"],
-  strapiCollection: ["strapiCollection", "freeBox", "button", "link"],
-  freeBox: ["freeBox", "button", "link"],
-  button: ["button", "link"],
-  link: ["link"]
+  root: ["root", "pageLayout", "readMore"],
+  pageLayout: ["pageLayout", "readMore"],
+  readMore: ["readMore"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -309,10 +413,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   pageLayout: typeof PageLayout;
-  strapiCollection: typeof StrapiCollection;
-  freeBox: "div";
-  button: typeof AntdButton;
-  link: "a";
+  readMore: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -376,10 +477,7 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     pageLayout: makeNodeComponent("pageLayout"),
-    strapiCollection: makeNodeComponent("strapiCollection"),
-    freeBox: makeNodeComponent("freeBox"),
-    button: makeNodeComponent("button"),
-    link: makeNodeComponent("link"),
+    readMore: makeNodeComponent("readMore"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

@@ -121,13 +121,22 @@ function PlasmicPageLayout__RenderFunc(props: {
           role={"img"}
         />
       }
-      navMenuItems={[{ path: "/", name: "Home" }]}
-      simpleNavTheme={(() => {
-        const __composite = { scheme: null };
-        __composite["scheme"] = "primary";
+      navMenuItems={(() => {
+        const __composite = [
+          { path: "/", name: "Home" },
+          { path: null, name: null }
+        ];
+        __composite["1"]["path"] = `/`;
+        __composite["1"]["name"] = "Articles";
         return __composite;
       })()}
-      title={"App title"}
+      simpleNavTheme={(() => {
+        const __composite = { scheme: null, customBgColor: null };
+        __composite["scheme"] = "custom";
+        __composite["customBgColor"] = "var(--token-GEppKCdlxgWK)";
+        return __composite;
+      })()}
+      title={"Next-Strapi-Plasmic POC"}
     >
       <LoadingBoundary
         data-plasmic-name={"loadingBoundary"}
