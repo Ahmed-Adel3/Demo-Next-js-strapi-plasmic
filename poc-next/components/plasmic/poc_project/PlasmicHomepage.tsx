@@ -48,6 +48,8 @@ import { StrapiField } from "@plasmicpkgs/plasmic-strapi"; // plasmic-import: Ya
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton"; // plasmic-import: bx9Xzvf5_eu/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: s_X35kxNyfle/codeComponent
 
+import { useScreenVariants as useScreenVariantssObdsQxKf1 } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: S__obdsQxKf1/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -137,6 +139,10 @@ function PlasmicHomepage__RenderFunc(props: {
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
     setDollarQueries(new$Queries);
   }
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariantssObdsQxKf1()
+  });
 
   return (
     <React.Fragment>

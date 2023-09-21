@@ -21,6 +21,11 @@
 .root > * {
   grid-column: 4;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .pageLayout:global(.__wab_instance):global(.__wab_instance) {
+    height: 1020px;
+  }
+}
 .strapiCollection:global(.__wab_instance) {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -70,6 +75,12 @@
   overflow: visible;
   flex-shrink: 0;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .strapiField__msMu3:global(.__wab_instance) {
+    width: 354px;
+    flex-shrink: 0;
+  }
+}
 .freeBox___3M6Lg {
   display: flex;
   position: relative;
@@ -82,6 +93,11 @@
   min-width: 0;
   padding: 8px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox___3M6Lg {
+    padding-right: 402px;
+  }
+}
 .text__uQaS6 {
   width: auto;
   height: auto;
@@ -92,6 +108,12 @@
   max-width: 100%;
   object-fit: cover;
   position: relative;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .strapiField__nfP3E:global(.__wab_instance) {
+    width: 106px;
+    flex-shrink: 0;
+  }
 }
 .section {
   display: grid;
@@ -110,6 +132,17 @@
 }
 .section > * {
   grid-column: 4;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .section {
+    width: 31px;
+    flex-shrink: 0;
+  }
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .section > * {
+    grid-column: 4;
+  }
 }
 .text__wDpGm {
   position: relative;
@@ -142,6 +175,12 @@
   height: 278px;
   flex-shrink: 0;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .strapiField__i2Rf8:global(.__wab_instance) {
+    width: 354px;
+    flex-shrink: 0;
+  }
+}
 .freeBox__o6WaZ {
   display: flex;
   position: relative;
@@ -160,4 +199,10 @@
   position: relative;
   font-family: "Jockey One", sans-serif;
   font-size: 23px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .strapiField__nuZbw:global(.__wab_instance) {
+    width: 364px;
+    flex-shrink: 0;
+  }
 }

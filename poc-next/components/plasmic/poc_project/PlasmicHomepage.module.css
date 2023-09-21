@@ -38,6 +38,22 @@
   margin-right: 0px;
   padding: 8px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .strapiCollection:global(.__wab_instance) {
+    font-size: 13px;
+    text-align: center;
+    justify-self: center;
+    grid-row-gap: 25px;
+    grid-column-gap: 6px;
+    position: relative;
+    left: auto;
+    top: auto;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+  }
+}
 .freeBox {
   display: flex;
   flex-direction: column;

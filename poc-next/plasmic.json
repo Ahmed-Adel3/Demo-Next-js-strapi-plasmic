@@ -125,7 +125,8 @@
             "importPath": "@plasmicpkgs/plasmic-rich-components"
           }
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -497,6 +498,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/articles/[slug]"
+        },
+        {
+          "id": "Z7hdOyZhPFbK",
+          "name": "Button2",
+          "type": "managed",
+          "projectId": "nCYdrPreWy1Y9vibrND8zs",
+          "renderModuleFilePath": "plasmic/poc_project/PlasmicButton2.tsx",
+          "importSpec": {
+            "modulePath": "Button2.tsx"
+          },
+          "cssFilePath": "plasmic/poc_project/PlasmicButton2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "button"
         }
       ],
       "icons": [
@@ -509,6 +524,16 @@
           "id": "_FymUiS1qYDk",
           "name": "Icon2Icon",
           "moduleFilePath": "plasmic/poc_project/icons/PlasmicIcon__Icon2.tsx"
+        },
+        {
+          "id": "NE3bvRR_z4X4",
+          "name": "ChecksvgIcon",
+          "moduleFilePath": "plasmic/poc_project/icons/PlasmicIcon__Checksvg.tsx"
+        },
+        {
+          "id": "OMc7SlCYPT93",
+          "name": "Icon38Icon",
+          "moduleFilePath": "plasmic/poc_project/icons/PlasmicIcon__Icon38.tsx"
         }
       ],
       "images": [],
@@ -553,7 +578,8 @@
           "displayName": "hostless-plasmic-query-graphql-fetcher",
           "componentImportPath": "@plasmicpkgs/plasmic-query"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {

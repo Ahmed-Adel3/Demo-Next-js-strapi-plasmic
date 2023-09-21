@@ -125,6 +125,7 @@ function PlasmicArticles__RenderFunc(props: {
           <PageLayout
             data-plasmic-name={"pageLayout"}
             data-plasmic-override={overrides.pageLayout}
+            className={classNames("__wab_instance")}
           >
             <ph.DataCtxReader>
               {$ctx => (
