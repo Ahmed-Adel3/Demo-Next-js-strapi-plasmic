@@ -1019,6 +1019,16 @@
         "projectId": "ohDidvG9XsCeFumugENU3J",
         "id": "BwOcdtoxJOlu"
       }
+    },
+    {
+      "name": "Unnamed Style Token",
+      "type": "spacing",
+      "value": "193px",
+      "category": "spacing",
+      "meta": {
+        "projectId": "nCYdrPreWy1Y9vibrND8zs",
+        "id": "I2vISLH2IK-f"
+      }
     }
   ],
   "global": {

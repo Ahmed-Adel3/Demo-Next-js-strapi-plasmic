@@ -44,8 +44,8 @@ import {
 } from "@plasmicapp/react-web";
 import PageLayout from "../../PageLayout"; // plasmic-import: oBF7spngyz80/component
 import { StrapiCollection } from "@plasmicpkgs/plasmic-strapi"; // plasmic-import: 3PiAu_DqaPA/codeComponent
-import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton"; // plasmic-import: bx9Xzvf5_eu/codeComponent
 import { StrapiField } from "@plasmicpkgs/plasmic-strapi"; // plasmic-import: Yal_C-reFIU/codeComponent
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton"; // plasmic-import: bx9Xzvf5_eu/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: s_X35kxNyfle/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -68,9 +68,10 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
   pageLayout?: p.Flex<typeof PageLayout>;
+  strapiCollection?: p.Flex<typeof StrapiCollection>;
+  freeBox?: p.Flex<"div">;
   button?: p.Flex<typeof AntdButton>;
   link?: p.Flex<"a"> & Partial<LinkProps>;
-  strapiField?: p.Flex<typeof StrapiField>;
 };
 
 export interface DefaultHomepageProps {}
@@ -171,10 +172,12 @@ function PlasmicHomepage__RenderFunc(props: {
             <ph.DataCtxReader>
               {$ctx => (
                 <StrapiCollection
-                  className={classNames(
-                    "__wab_instance",
-                    sty.strapiCollection___690Ik
-                  )}
+                  data-plasmic-name={"strapiCollection"}
+                  data-plasmic-override={overrides.strapiCollection}
+                  className={classNames("__wab_instance", sty.strapiCollection)}
+                  filterField={"slug"}
+                  filterParameter={"$ne"}
+                  filterValue={" "}
                   name={"Articles"}
                   noAutoRepeat={false}
                   noLayout={false}
@@ -182,11 +185,26 @@ function PlasmicHomepage__RenderFunc(props: {
                   <ph.DataCtxReader>
                     {$ctx => (
                       <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__wlGv7
-                        )}
+                        data-plasmic-name={"freeBox"}
+                        data-plasmic-override={overrides.freeBox}
+                        className={classNames(projectcss.all, sty.freeBox)}
                       >
+                        <StrapiField
+                          className={classNames(
+                            "__wab_instance",
+                            sty.strapiField__wr6T
+                          )}
+                          path={"Title"}
+                        />
+
+                        <StrapiField
+                          className={classNames(
+                            "__wab_instance",
+                            sty.strapiField___4Qitj
+                          )}
+                          path={"Cover"}
+                        />
+
                         <AntdButton
                           data-plasmic-name={"button"}
                           data-plasmic-override={overrides.button}
@@ -195,7 +213,8 @@ function PlasmicHomepage__RenderFunc(props: {
                           href={(() => {
                             try {
                               return (
-                                "/articles/" + $ctx.currentStrapiArticlesItem.id
+                                "/articles/" +
+                                $ctx.currentStrapiArticlesItem.attributes.slug
                               );
                             } catch (e) {
                               if (
@@ -257,49 +276,6 @@ function PlasmicHomepage__RenderFunc(props: {
                             {"Read more ..."}
                           </p.PlasmicLink>
                         </AntdButton>
-                        <StrapiCollection
-                          className={classNames(
-                            "__wab_instance",
-                            sty.strapiCollection__olTbc
-                          )}
-                          name={"Articles"}
-                          noAutoRepeat={false}
-                          noLayout={false}
-                        >
-                          <ph.DataCtxReader>
-                            {$ctx => (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox___9Is0H
-                                )}
-                              >
-                                <StrapiField
-                                  data-plasmic-name={"strapiField"}
-                                  data-plasmic-override={overrides.strapiField}
-                                  className={classNames(
-                                    "__wab_instance",
-                                    sty.strapiField
-                                  )}
-                                  path={(() => {
-                                    try {
-                                      return undefined;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                />
-                              </div>
-                            )}
-                          </ph.DataCtxReader>
-                        </StrapiCollection>
                       </div>
                     )}
                   </ph.DataCtxReader>
@@ -314,11 +290,12 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "pageLayout", "button", "link", "strapiField"],
-  pageLayout: ["pageLayout", "button", "link", "strapiField"],
+  root: ["root", "pageLayout", "strapiCollection", "freeBox", "button", "link"],
+  pageLayout: ["pageLayout", "strapiCollection", "freeBox", "button", "link"],
+  strapiCollection: ["strapiCollection", "freeBox", "button", "link"],
+  freeBox: ["freeBox", "button", "link"],
   button: ["button", "link"],
-  link: ["link"],
-  strapiField: ["strapiField"]
+  link: ["link"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -326,9 +303,10 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   pageLayout: typeof PageLayout;
+  strapiCollection: typeof StrapiCollection;
+  freeBox: "div";
   button: typeof AntdButton;
   link: "a";
-  strapiField: typeof StrapiField;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -392,9 +370,10 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     pageLayout: makeNodeComponent("pageLayout"),
+    strapiCollection: makeNodeComponent("strapiCollection"),
+    freeBox: makeNodeComponent("freeBox"),
     button: makeNodeComponent("button"),
     link: makeNodeComponent("link"),
-    strapiField: makeNodeComponent("strapiField"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

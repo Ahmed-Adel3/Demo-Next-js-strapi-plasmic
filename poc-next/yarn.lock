@@ -623,6 +623,11 @@
   resolved "https://registry.yarnpkg.com/@plasmicpkgs/plasmic-basic-components/-/plasmic-basic-components-0.0.177.tgz#a9aadbb4736bd17d2285b2c1212c759ddaf9f15e"
   integrity sha512-KbZcPcPN5DIWjqqalpM/2glXmTY/etJgTCLVHbInk4mV+jnCoKOpJCWjutLaxWTC7wZBW8j/09wuipCwumpJjw==
 
+"@plasmicpkgs/plasmic-query@^0.0.179":
+  version "0.0.179"
+  resolved "https://registry.yarnpkg.com/@plasmicpkgs/plasmic-query/-/plasmic-query-0.0.179.tgz#81a65d5ead1fbb978356e275e7888b452482c0aa"
+  integrity sha512-sKo1ieREAxfSoUCpv2fR4W1FlXW9+dvOsbelb7mPxlupEZ9rOV92reTcFvSuFmvTYr173rP7KABxKvNdqk6Frw==
+
 "@plasmicpkgs/plasmic-rich-components@^1.0.125":
   version "1.0.125"
   resolved "https://registry.yarnpkg.com/@plasmicpkgs/plasmic-rich-components/-/plasmic-rich-components-1.0.125.tgz#5bf9748b484914b127eadaf8e61b9bade63fb8e5"

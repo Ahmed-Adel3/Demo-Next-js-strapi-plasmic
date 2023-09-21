@@ -54,21 +54,15 @@ export type PlasmicArticles__VariantsArgs = {};
 type VariantPropType = keyof PlasmicArticles__VariantsArgs;
 export const PlasmicArticles__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicArticles__ArgsType = {
-  id?: string;
-  id2?: string;
-};
+export type PlasmicArticles__ArgsType = {};
 type ArgPropType = keyof PlasmicArticles__ArgsType;
-export const PlasmicArticles__ArgProps = new Array<ArgPropType>("id", "id2");
+export const PlasmicArticles__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicArticles__OverridesType = {
   root?: p.Flex<"div">;
   pageLayout?: p.Flex<typeof PageLayout>;
-  section?: p.Flex<"section">;
-  h1?: p.Flex<"h1">;
   strapiCollection?: p.Flex<typeof StrapiCollection>;
-  freeBox?: p.Flex<"div">;
-  strapiField?: p.Flex<typeof StrapiField>;
+  section?: p.Flex<"section">;
 };
 
 export interface DefaultArticlesProps {}
@@ -88,28 +82,7 @@ function PlasmicArticles__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(
-    () =>
-      Object.assign(
-        {
-          id: (() => {
-            try {
-              return undefined;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
-        },
-        props.args
-      ),
-    [props.args]
-  );
+  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
 
   const $props = {
     ...args,
@@ -155,73 +128,148 @@ function PlasmicArticles__RenderFunc(props: {
           >
             <ph.DataCtxReader>
               {$ctx => (
-                <React.Fragment>
-                  <section
-                    data-plasmic-name={"section"}
-                    data-plasmic-override={overrides.section}
-                    className={classNames(projectcss.all, sty.section)}
-                  >
-                    <h1
-                      data-plasmic-name={"h1"}
-                      data-plasmic-override={overrides.h1}
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h1,
-                        projectcss.__wab_text,
-                        sty.h1
-                      )}
-                    >
-                      {"Untitled page"}
-                    </h1>
-                  </section>
-                  <StrapiCollection
-                    data-plasmic-name={"strapiCollection"}
-                    data-plasmic-override={overrides.strapiCollection}
-                    className={classNames(
-                      "__wab_instance",
-                      sty.strapiCollection
-                    )}
-                    filterField={undefined}
-                    filterParameter={"$eq"}
-                    filterValue={(() => {
-                      try {
-                        return $ctx.params.slug;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
+                <StrapiCollection
+                  data-plasmic-name={"strapiCollection"}
+                  data-plasmic-override={overrides.strapiCollection}
+                  className={classNames("__wab_instance", sty.strapiCollection)}
+                  filterField={"slug"}
+                  filterParameter={"$eq"}
+                  filterValue={(() => {
+                    try {
+                      return $ctx.params.slug;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "2d1ad689-1f69-4dcc-b678-7d566a15f10c";
                       }
-                    })()}
-                    limit={1}
-                    name={"Articles"}
-                    noAutoRepeat={false}
-                    noLayout={false}
-                  >
-                    <ph.DataCtxReader>
-                      {$ctx => (
+                      throw e;
+                    }
+                  })()}
+                  limit={1}
+                  name={"Articles"}
+                  noAutoRepeat={false}
+                  noLayout={false}
+                >
+                  <ph.DataCtxReader>
+                    {$ctx => (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__iglbS
+                        )}
+                      >
                         <div
-                          data-plasmic-name={"freeBox"}
-                          data-plasmic-override={overrides.freeBox}
-                          className={classNames(projectcss.all, sty.freeBox)}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__tKAqT
+                          )}
                         >
                           <StrapiField
-                            data-plasmic-name={"strapiField"}
-                            data-plasmic-override={overrides.strapiField}
                             className={classNames(
                               "__wab_instance",
-                              sty.strapiField
+                              sty.strapiField__msMu3
                             )}
                             path={"Title"}
                           />
                         </div>
-                      )}
-                    </ph.DataCtxReader>
-                  </StrapiCollection>
-                </React.Fragment>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___3M6Lg
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__uQaS6
+                            )}
+                          >
+                            <React.Fragment>
+                              <span
+                                className={
+                                  "plasmic_default__all plasmic_default__span"
+                                }
+                                style={{ fontWeight: 700 }}
+                              >
+                                {"Created in: "}
+                              </span>
+                            </React.Fragment>
+                          </div>
+                          <StrapiField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.strapiField__nfP3E
+                            )}
+                            path={"createdAt"}
+                          />
+
+                          <section
+                            data-plasmic-name={"section"}
+                            data-plasmic-override={overrides.section}
+                            className={classNames(projectcss.all, sty.section)}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__wDpGm
+                            )}
+                          >
+                            <React.Fragment>
+                              <span
+                                className={
+                                  "plasmic_default__all plasmic_default__span"
+                                }
+                                style={{ fontWeight: 700 }}
+                              >
+                                {"Created by:"}
+                              </span>
+                            </React.Fragment>
+                          </div>
+                          <StrapiField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.strapiField__vEpL7
+                            )}
+                            path={"Author"}
+                          />
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__k4S7W
+                          )}
+                        >
+                          <StrapiField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.strapiField__i2Rf8
+                            )}
+                            path={"Cover"}
+                          />
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__o6WaZ
+                          )}
+                        >
+                          <StrapiField
+                            className={classNames(
+                              "__wab_instance",
+                              sty.strapiField__nuZbw
+                            )}
+                            path={"Body"}
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </ph.DataCtxReader>
+                </StrapiCollection>
               )}
             </ph.DataCtxReader>
           </PageLayout>
@@ -232,28 +280,10 @@ function PlasmicArticles__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "pageLayout",
-    "section",
-    "h1",
-    "strapiCollection",
-    "freeBox",
-    "strapiField"
-  ],
-  pageLayout: [
-    "pageLayout",
-    "section",
-    "h1",
-    "strapiCollection",
-    "freeBox",
-    "strapiField"
-  ],
-  section: ["section", "h1"],
-  h1: ["h1"],
-  strapiCollection: ["strapiCollection", "freeBox", "strapiField"],
-  freeBox: ["freeBox", "strapiField"],
-  strapiField: ["strapiField"]
+  root: ["root", "pageLayout", "strapiCollection", "section"],
+  pageLayout: ["pageLayout", "strapiCollection", "section"],
+  strapiCollection: ["strapiCollection", "section"],
+  section: ["section"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -261,11 +291,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   pageLayout: typeof PageLayout;
-  section: "section";
-  h1: "h1";
   strapiCollection: typeof StrapiCollection;
-  freeBox: "div";
-  strapiField: typeof StrapiField;
+  section: "section";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -329,11 +356,8 @@ export const PlasmicArticles = Object.assign(
   {
     // Helper components rendering sub-elements
     pageLayout: makeNodeComponent("pageLayout"),
-    section: makeNodeComponent("section"),
-    h1: makeNodeComponent("h1"),
     strapiCollection: makeNodeComponent("strapiCollection"),
-    freeBox: makeNodeComponent("freeBox"),
-    strapiField: makeNodeComponent("strapiField"),
+    section: makeNodeComponent("section"),
 
     // Metadata about props expected for PlasmicArticles
     internalVariantProps: PlasmicArticles__VariantProps,
