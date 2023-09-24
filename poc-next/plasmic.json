@@ -125,7 +125,8 @@
             "importPath": "@plasmicpkgs/plasmic-rich-components"
           }
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",

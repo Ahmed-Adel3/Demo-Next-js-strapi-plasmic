@@ -289,16 +289,33 @@
 .card:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  width: 170px;
+  width: 163px;
+  align-self: flex-start;
+}
+.text {
+  text-align: center;
+  font-family: "Jockey One", sans-serif;
+  font-weight: 400;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  right: auto;
+  width: auto;
 }
 .img {
   position: relative;
-  object-fit: fill;
-  max-width: 100%;
+  object-fit: contain;
+  max-width: 50%;
+  width: auto;
+  object-position: center 50%;
+  max-height: 120px;
 }
 .img > picture > img {
-  object-fit: fill;
+  object-fit: contain;
+  object-position: center 50%;
 }
 .img > :global(.__wab_img-spacer) > img {
-  object-fit: fill;
+  object-fit: contain;
+  object-position: center 50%;
 }

@@ -21,12 +21,6 @@ import * as p from "@plasmicapp/react-web";
 import * as ph from "@plasmicapp/react-web/lib/host";
 
 import {
-  usePlasmicDataConfig,
-  executePlasmicDataOp,
-  usePlasmicDataOp
-} from "@plasmicapp/react-web/lib/data-sources";
-
-import {
   hasVariant,
   classNames,
   wrapWithClassName,
@@ -76,6 +70,7 @@ export type PlasmicHomepage__OverridesType = {
   h1?: p.Flex<"h1">;
   httpRestApiFetcher?: p.Flex<typeof DataFetcher>;
   card?: p.Flex<typeof Card>;
+  text?: p.Flex<"div">;
   img?: p.Flex<typeof p.PlasmicImg>;
 };
 
@@ -109,62 +104,6 @@ function PlasmicHomepage__RenderFunc(props: {
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
-
-  const [$queries, setDollarQueries] = React.useState<
-    Record<string, ReturnType<typeof usePlasmicDataOp>>
-  >({});
-
-  const new$Queries: Record<string, ReturnType<typeof usePlasmicDataOp>> = {
-    articles: usePlasmicDataOp(
-      (() => {
-        try {
-          return {
-            sourceId: "sosDk4t4x1NgBAyUouvgxT",
-            opId: "f39ed9b1-de15-461d-9f66-ef7b114dd680",
-            userArgs: {},
-            cacheKey: "plasmic.$..$..$.f39ed9b1-de15-461d-9f66-ef7b114dd680.$.",
-            invalidatedKeys: null,
-            roleId: null
-          };
-        } catch (e) {
-          if (
-            e instanceof TypeError ||
-            e?.plasmicType === "PlasmicUndefinedDataError"
-          ) {
-            return undefined;
-          } else {
-            throw e;
-          }
-        }
-      })()
-    ),
-    aiTools: usePlasmicDataOp(
-      (() => {
-        try {
-          return {
-            sourceId: "sosDk4t4x1NgBAyUouvgxT",
-            opId: "27264a48-27de-4f07-907d-9cc776a47df4",
-            userArgs: {},
-            cacheKey: "plasmic.$..$..$.27264a48-27de-4f07-907d-9cc776a47df4.$.",
-            invalidatedKeys: null,
-            roleId: null
-          };
-        } catch (e) {
-          if (
-            e instanceof TypeError ||
-            e?.plasmicType === "PlasmicUndefinedDataError"
-          ) {
-            return undefined;
-          } else {
-            throw e;
-          }
-        }
-      })()
-    )
-  };
-  if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
-    setDollarQueries(new$Queries);
-  }
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantssObdsQxKf1()
@@ -489,22 +428,32 @@ function PlasmicHomepage__RenderFunc(props: {
                               className={classNames("__wab_instance", sty.card)}
                               key={currentIndex}
                               title={
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return currentItem.attributes.Name;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "Card title";
+                                <div
+                                  data-plasmic-name={"text"}
+                                  data-plasmic-override={overrides.text}
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return currentItem.attributes.Name;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "Card title";
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
+                                    })()}
+                                  </React.Fragment>
+                                </div>
                               }
                             >
                               <p.PlasmicImg
@@ -513,8 +462,8 @@ function PlasmicHomepage__RenderFunc(props: {
                                 alt={""}
                                 className={classNames(sty.img)}
                                 displayHeight={"auto"}
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={"100%"}
+                                displayMaxHeight={"120px"}
+                                displayMaxWidth={"50%"}
                                 displayMinHeight={"0"}
                                 displayMinWidth={"0"}
                                 displayWidth={"auto"}
@@ -562,6 +511,7 @@ const PlasmicDescendants = {
     "h1",
     "httpRestApiFetcher",
     "card",
+    "text",
     "img"
   ],
   pageLayout: [
@@ -570,12 +520,14 @@ const PlasmicDescendants = {
     "h1",
     "httpRestApiFetcher",
     "card",
+    "text",
     "img"
   ],
   readMore: ["readMore"],
   h1: ["h1"],
-  httpRestApiFetcher: ["httpRestApiFetcher", "card", "img"],
-  card: ["card", "img"],
+  httpRestApiFetcher: ["httpRestApiFetcher", "card", "text", "img"],
+  card: ["card", "text", "img"],
+  text: ["text"],
   img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -588,6 +540,7 @@ type NodeDefaultElementType = {
   h1: "h1";
   httpRestApiFetcher: typeof DataFetcher;
   card: typeof Card;
+  text: "div";
   img: typeof p.PlasmicImg;
 };
 
@@ -656,6 +609,7 @@ export const PlasmicHomepage = Object.assign(
     h1: makeNodeComponent("h1"),
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
     card: makeNodeComponent("card"),
+    text: makeNodeComponent("text"),
     img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicHomepage
