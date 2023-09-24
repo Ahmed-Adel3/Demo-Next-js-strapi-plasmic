@@ -18,7 +18,7 @@
     "@plasmicapp/react-web": "^0.2.253",
     "@plasmicpkgs/antd5": "^0.0.122",
     "@plasmicpkgs/plasmic-basic-components": "^0.0.177",
-    "@plasmicpkgs/plasmic-query": "^0.0.179",
+    "@plasmicpkgs/plasmic-query": "^0.0.180",
     "@plasmicpkgs/plasmic-rich-components": "^1.0.125",
     "@plasmicpkgs/plasmic-strapi": "^0.1.110",
     "@types/node": "20.6.0",

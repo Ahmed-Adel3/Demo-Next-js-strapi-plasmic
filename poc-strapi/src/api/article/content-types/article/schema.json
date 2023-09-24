@@ -20,16 +20,25 @@
       "required": true
     },
     "Cover": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "Author": {
       "type": "string",
       "required": true
+    },
+    "slug": {
+      "type": "customField",
+      "customField": "plugin::strapi-advanced-uuid.uuid"
+    },
+    "Featured": {
+      "type": "boolean",
+      "required": true,
+      "default": false
     }
   }
 }
