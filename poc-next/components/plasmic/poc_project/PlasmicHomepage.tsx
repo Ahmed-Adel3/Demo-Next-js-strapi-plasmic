@@ -46,6 +46,8 @@ import PageLayout from "../../PageLayout"; // plasmic-import: oBF7spngyz80/compo
 import { StrapiCollection } from "@plasmicpkgs/plasmic-strapi"; // plasmic-import: 3PiAu_DqaPA/codeComponent
 import { StrapiField } from "@plasmicpkgs/plasmic-strapi"; // plasmic-import: Yal_C-reFIU/codeComponent
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton"; // plasmic-import: bx9Xzvf5_eu/codeComponent
+import { DataFetcher } from "@plasmicpkgs/plasmic-query"; // plasmic-import: ae7V86eNoXA/codeComponent
+import Card from "../../Card"; // plasmic-import: W_1Ba8hpsmrH/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources"; // plasmic-import: s_X35kxNyfle/codeComponent
 
 import { useScreenVariants as useScreenVariantssObdsQxKf1 } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: S__obdsQxKf1/globalVariant
@@ -72,6 +74,9 @@ export type PlasmicHomepage__OverridesType = {
   pageLayout?: p.Flex<typeof PageLayout>;
   readMore?: p.Flex<"div">;
   h1?: p.Flex<"h1">;
+  httpRestApiFetcher?: p.Flex<typeof DataFetcher>;
+  card?: p.Flex<typeof Card>;
+  img?: p.Flex<typeof p.PlasmicImg>;
 };
 
 export interface DefaultHomepageProps {}
@@ -434,6 +439,110 @@ function PlasmicHomepage__RenderFunc(props: {
                     >
                       {"Latest AI Tools"}
                     </h1>
+                    <DataFetcher
+                      data-plasmic-name={"httpRestApiFetcher"}
+                      data-plasmic-override={overrides.httpRestApiFetcher}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.httpRestApiFetcher
+                      )}
+                      dataName={"data"}
+                      errorDisplay={
+                        <ph.DataCtxReader>
+                          {$ctx => "Error fetching data"}
+                        </ph.DataCtxReader>
+                      }
+                      headers={{
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                      }}
+                      loadingDisplay={
+                        <ph.DataCtxReader>
+                          {$ctx => "Loading..."}
+                        </ph.DataCtxReader>
+                      }
+                      method={"GET"}
+                      noLayout={false}
+                      queryKey={``}
+                      url={"http://localhost:1337/api/useful-links?populate=*"}
+                    >
+                      <ph.DataCtxReader>
+                        {$ctx =>
+                          (
+                            (() => {
+                              try {
+                                return $ctx.data.data;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })() ?? []
+                          ).map((currentItem, currentIndex) => (
+                            <Card
+                              data-plasmic-name={"card"}
+                              data-plasmic-override={overrides.card}
+                              className={classNames("__wab_instance", sty.card)}
+                              key={currentIndex}
+                              title={
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return currentItem.attributes.Name;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "Card title";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              }
+                            >
+                              <p.PlasmicImg
+                                data-plasmic-name={"img"}
+                                data-plasmic-override={overrides.img}
+                                alt={""}
+                                className={classNames(sty.img)}
+                                displayHeight={"auto"}
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={"auto"}
+                                loading={"lazy"}
+                                src={(() => {
+                                  try {
+                                    return (
+                                      "http://localhost:1337" +
+                                      currentItem.attributes.Logo.data
+                                        .attributes.url
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              />
+                            </Card>
+                          ))
+                        }
+                      </ph.DataCtxReader>
+                    </DataFetcher>
                   </div>
                 </div>
               )}
@@ -446,10 +555,28 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "pageLayout", "readMore", "h1"],
-  pageLayout: ["pageLayout", "readMore", "h1"],
+  root: [
+    "root",
+    "pageLayout",
+    "readMore",
+    "h1",
+    "httpRestApiFetcher",
+    "card",
+    "img"
+  ],
+  pageLayout: [
+    "pageLayout",
+    "readMore",
+    "h1",
+    "httpRestApiFetcher",
+    "card",
+    "img"
+  ],
   readMore: ["readMore"],
-  h1: ["h1"]
+  h1: ["h1"],
+  httpRestApiFetcher: ["httpRestApiFetcher", "card", "img"],
+  card: ["card", "img"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -459,6 +586,9 @@ type NodeDefaultElementType = {
   pageLayout: typeof PageLayout;
   readMore: "div";
   h1: "h1";
+  httpRestApiFetcher: typeof DataFetcher;
+  card: typeof Card;
+  img: typeof p.PlasmicImg;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -524,6 +654,9 @@ export const PlasmicHomepage = Object.assign(
     pageLayout: makeNodeComponent("pageLayout"),
     readMore: makeNodeComponent("readMore"),
     h1: makeNodeComponent("h1"),
+    httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
+    card: makeNodeComponent("card"),
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

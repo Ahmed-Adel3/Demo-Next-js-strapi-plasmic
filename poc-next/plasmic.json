@@ -125,8 +125,7 @@
             "importPath": "@plasmicpkgs/plasmic-rich-components"
           }
         }
-      ],
-      "jsBundleThemes": []
+      ]
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -512,6 +511,19 @@
           "scheme": "blackbox",
           "componentType": "component",
           "plumeType": "button"
+        },
+        {
+          "id": "W_1Ba8hpsmrH",
+          "name": "Card",
+          "type": "managed",
+          "projectId": "nCYdrPreWy1Y9vibrND8zs",
+          "renderModuleFilePath": "plasmic/poc_project/PlasmicCard.tsx",
+          "importSpec": {
+            "modulePath": "Card.tsx"
+          },
+          "cssFilePath": "plasmic/poc_project/PlasmicCard.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
