@@ -69,7 +69,6 @@ export type PlasmicHomepage__OverridesType = {
   readMore?: p.Flex<"div">;
   h1?: p.Flex<"h1">;
   httpRestApiFetcher?: p.Flex<typeof DataFetcher>;
-  card?: p.Flex<typeof Card>;
   text?: p.Flex<"div">;
   img?: p.Flex<typeof p.PlasmicImg>;
 };
@@ -421,74 +420,87 @@ function PlasmicHomepage__RenderFunc(props: {
                                 throw e;
                               }
                             })() ?? []
-                          ).map((currentItem, currentIndex) => (
-                            <Card
-                              data-plasmic-name={"card"}
-                              data-plasmic-override={overrides.card}
-                              className={classNames("__wab_instance", sty.card)}
-                              key={currentIndex}
-                              title={
-                                <div
-                                  data-plasmic-name={"text"}
-                                  data-plasmic-override={overrides.text}
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return currentItem.attributes.Name;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "Card title";
+                          ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                            const currentItem = __plasmic_item_0;
+                            const currentIndex = __plasmic_idx_0;
+                            return (
+                              <Card
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.card__zt46N
+                                )}
+                                key={currentIndex}
+                                title={
+                                  <div
+                                    data-plasmic-name={"text"}
+                                    data-plasmic-override={overrides.text}
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return currentItem.attributes.Name;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "Card title";
+                                          }
+                                          throw e;
                                         }
-                                        throw e;
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                }
+                              >
+                                <Card
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.card__grdLb
+                                  )}
+                                  title={null}
+                                />
+
+                                <p.PlasmicImg
+                                  data-plasmic-name={"img"}
+                                  data-plasmic-override={overrides.img}
+                                  alt={""}
+                                  className={classNames(sty.img)}
+                                  displayHeight={"auto"}
+                                  displayMaxHeight={"120px"}
+                                  displayMaxWidth={"50%"}
+                                  displayMinHeight={"0"}
+                                  displayMinWidth={"0"}
+                                  displayWidth={"auto"}
+                                  loading={"lazy"}
+                                  src={(() => {
+                                    try {
+                                      return (
+                                        "http://localhost:1337" +
+                                        currentItem.attributes.Logo.data
+                                          .attributes.url
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
                                       }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                              }
-                            >
-                              <p.PlasmicImg
-                                data-plasmic-name={"img"}
-                                data-plasmic-override={overrides.img}
-                                alt={""}
-                                className={classNames(sty.img)}
-                                displayHeight={"auto"}
-                                displayMaxHeight={"120px"}
-                                displayMaxWidth={"50%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={"auto"}
-                                loading={"lazy"}
-                                src={(() => {
-                                  try {
-                                    return (
-                                      "http://localhost:1337" +
-                                      currentItem.attributes.Logo.data
-                                        .attributes.url
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
+                                      throw e;
                                     }
-                                    throw e;
-                                  }
-                                })()}
-                              />
-                            </Card>
-                          ))
+                                  })()}
+                                />
+                              </Card>
+                            );
+                          })
                         }
                       </ph.DataCtxReader>
                     </DataFetcher>
@@ -510,7 +522,6 @@ const PlasmicDescendants = {
     "readMore",
     "h1",
     "httpRestApiFetcher",
-    "card",
     "text",
     "img"
   ],
@@ -519,14 +530,12 @@ const PlasmicDescendants = {
     "readMore",
     "h1",
     "httpRestApiFetcher",
-    "card",
     "text",
     "img"
   ],
   readMore: ["readMore"],
   h1: ["h1"],
-  httpRestApiFetcher: ["httpRestApiFetcher", "card", "text", "img"],
-  card: ["card", "text", "img"],
+  httpRestApiFetcher: ["httpRestApiFetcher", "text", "img"],
   text: ["text"],
   img: ["img"]
 } as const;
@@ -539,7 +548,6 @@ type NodeDefaultElementType = {
   readMore: "div";
   h1: "h1";
   httpRestApiFetcher: typeof DataFetcher;
-  card: typeof Card;
   text: "div";
   img: typeof p.PlasmicImg;
 };
@@ -608,7 +616,6 @@ export const PlasmicHomepage = Object.assign(
     readMore: makeNodeComponent("readMore"),
     h1: makeNodeComponent("h1"),
     httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
-    card: makeNodeComponent("card"),
     text: makeNodeComponent("text"),
     img: makeNodeComponent("img"),
 
