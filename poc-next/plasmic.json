@@ -525,6 +525,20 @@
           "cssFilePath": "plasmic/poc_project/PlasmicCard.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "bquLA_GybRFP",
+          "name": "NewPage",
+          "type": "managed",
+          "projectId": "nCYdrPreWy1Y9vibrND8zs",
+          "renderModuleFilePath": "plasmic/poc_project/PlasmicNewPage.tsx",
+          "importSpec": {
+            "modulePath": "../pages/new-page.tsx"
+          },
+          "cssFilePath": "plasmic/poc_project/PlasmicNewPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/new-page"
         }
       ],
       "icons": [
