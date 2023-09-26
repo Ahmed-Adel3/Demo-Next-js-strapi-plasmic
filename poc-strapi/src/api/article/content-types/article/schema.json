@@ -39,6 +39,10 @@
       "type": "boolean",
       "required": true,
       "default": false
+    },
+    "Subtitle": {
+      "type": "string",
+      "required": true
     }
   }
 }
